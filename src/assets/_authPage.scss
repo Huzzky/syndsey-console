@@ -1,0 +1,42 @@
+.auth-containter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 30%;
+    
+    &__logo {
+        width: 115px;
+        height: 30px;
+        padding-bottom: 20px;
+        
+    }
+    
+    .form-auth {
+        height: 100%;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        
+        &__form {
+            padding-left: 5%;
+            padding-right: 5%;
+            display: flex;
+            flex-direction: column;
+
+            .auth-form {
+                &__label {
+                    padding-top: 8%;
+                    font-size: 24px;
+                    line-height: 30px;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+}
+
+
