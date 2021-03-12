@@ -12,10 +12,10 @@ const FormAuthPage = (props) => {
           <p className="login__p">Логин</p>
           <input className="login__input" type="text" placeholder="Логин" />
         </div>
-        <div className="">
-          <div>
-            <p>Сублогин</p>
-            <p>Опционально</p>
+        <div className="form-auth__sublogin">
+          <div className="form-auth__sublogin__text-content">
+            <p className="form-auth__sublogin__p-m">Сублогин</p>
+            <p className="form-auth__sublogin__p">Опционально</p>
           </div>
           <input type="text" placeholder="Сублогин"></input>
         </div>
