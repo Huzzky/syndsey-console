@@ -1,12 +1,22 @@
-import { memo } from 'react'
+import { memo, useState } from 'react'
 
-const component = () => {
+const Component = () => {
+  const [loginCheck, setLoginCheck] = useState(true)
   return (
     <div className="login form-auth__login">
-      <p className="login__p">Логин</p>
-      <input className="login__input" type="text" required />
+      <p className={loginCheck ? 'login__p' : 'login__p--error'}>Логин</p>
+      <input
+        className={loginCheck ? 'login__input' : 'login__input--error'}
+        onBlur={(e) => {
+          e.currentTarget.value === ''
+            ? setLoginCheck(false)
+            : setLoginCheck(true)
+        }}
+        type="text"
+        required
+      />
     </div>
   )
 }
 
-export const LoginAuthInput = memo(component)
+export const LoginAuthInput = memo(Component)

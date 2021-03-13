@@ -1,5 +1,6 @@
 import '../../../assets/_animation.scss'
 import { useState } from 'react'
+import { AnimationLoader } from '../../Core/AnimationLoader'
 
 export const BtnSendFormAuthPage = () => {
   const [loginValidate, setLoginValidate] = useState(true)
@@ -22,20 +23,7 @@ export const BtnSendFormAuthPage = () => {
     </button>
   ) : (
     <div className="form-auth__form__button-send">
-      <div className="lds-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <AnimationLoader />
     </div>
   )
 }
