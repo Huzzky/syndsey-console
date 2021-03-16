@@ -1,24 +1,22 @@
-// import PropTypes from 'prop-types'
-
+import { useState } from 'react'
 import { BtnSendFormAuthPage } from './BtnSendFormAuthPage'
 import { LoginAuthInput } from './LoginAuthInput'
 import { PasswordAuthInput } from './PasswordAuthInput'
 import { SubloginAuthInput } from './SubloginAuthInput'
 
-const FormAuthPage = (props) => {
+const FormAuthPage = () => {
+  const [loginNullOrHaveText, setLoginNullOrHaveText] = useState('')
   return (
     <div className="form-auth">
       <form action="submit" class="form-auth__form">
         <label className="form-auth__label">API-консолька</label>
-        <LoginAuthInput />
+        <LoginAuthInput setLoginNullOrHaveText={setLoginNullOrHaveText} />
         <SubloginAuthInput />
         <PasswordAuthInput />
-        <BtnSendFormAuthPage />
+        <BtnSendFormAuthPage loginCheck={loginNullOrHaveText} />
       </form>
     </div>
   )
 }
-
-// FormAuthPage.propTypes = {}
 
 export default FormAuthPage

@@ -2,9 +2,7 @@ import '../../../assets/_animation.scss'
 import { useState } from 'react'
 import { AnimationLoader } from '../../Core/AnimationLoader'
 
-export const BtnSendFormAuthPage = () => {
-  const [loginValidate, setLoginValidate] = useState(true)
-  const [passwordValidate, setPasswordValidate] = useState(true)
+export const BtnSendFormAuthPage = (props) => {
   const [send, setSend] = useState(false)
 
   return !send ? (
@@ -13,11 +11,12 @@ export const BtnSendFormAuthPage = () => {
         e.preventDefault()
         setSend(true)
       }}
-      className="form-auth__form__button-send"
-      type="submit"
-      disabled={
-        passwordValidate === true && loginValidate === true ? '' : 'disabled'
+      className={
+        'form-auth__form__button-send' +
+        (props.loginCheck === '' ? '--disabled' : '')
       }
+      type="submit"
+      disabled={props.loginCheck === '' ? 'disabled' : ''}
     >
       Войти
     </button>

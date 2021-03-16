@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 
-const Component = () => {
+const Component = (props) => {
   const [loginCheck, setLoginCheck] = useState(true)
   return (
     <div className="login form-auth__login">
@@ -14,6 +14,9 @@ const Component = () => {
         }}
         type="text"
         required
+        onChange={(e) => {
+          props.setLoginNullOrHaveText(e.currentTarget.value)
+        }}
       />
     </div>
   )
