@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BtnSendFormAuthPage } from './BtnSendFormAuthPage'
+import BtnSendFormAuthPage from './BtnSendFormAuthPage'
 import { LoginAuthInput } from './LoginAuthInput'
 import { PasswordAuthInput } from './PasswordAuthInput'
 import { SubloginAuthInput } from './SubloginAuthInput'

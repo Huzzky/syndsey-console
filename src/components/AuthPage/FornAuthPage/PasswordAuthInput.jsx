@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { memo, useState } from 'react'
 
 const Component = ({ setPasswordNullOrHaveText }) => {
@@ -24,6 +25,10 @@ const Component = ({ setPasswordNullOrHaveText }) => {
       ></input>
     </div>
   )
+}
+
+Component.propTypes = {
+  setPasswordNullOrHaveText: PropTypes.func,
 }
 
 export const PasswordAuthInput = memo(Component)

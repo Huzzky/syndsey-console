@@ -1,15 +1,15 @@
+import PropTypes from 'prop-types'
 import '../../../assets/_animation.scss'
-import { useState } from 'react'
 import { AnimationLoader } from '../../Core/AnimationLoader'
+import { connect } from 'react-redux'
+import { sendFormDataForAuth } from '../../../store/actions/sendFormAuth'
 
-export const BtnSendFormAuthPage = ({ formCheck }) => {
-  const [send, setSend] = useState(false)
-
-  return !send ? (
+const BtnSendFormAuthPage = ({ formCheck, isLoading, sendFormDataForAuth }) => {
+  return !isLoading ? (
     <button
       onClick={(e) => {
-        console.log(formCheck)
-        setSend(true)
+        e.preventDefault()
+        sendFormDataForAuth(formCheck)
       }}
       className={
         'form-auth__form__button-send' +
@@ -29,3 +29,22 @@ export const BtnSendFormAuthPage = ({ formCheck }) => {
     </div>
   )
 }
+
+BtnSendFormAuthPage.propTypes = {
+  formCheck: PropTypes.shape({
+    loginNullOrHaveText: PropTypes.string,
+    passwordNullOrHaveText: PropTypes.string,
+  }),
+  isLoading: PropTypes.bool,
+  sendFormDataForAuth: PropTypes.func,
+}
+
+const mapStateToProps = ({ formAuthReducer }) => ({
+  isLoading: formAuthReducer.isLoading,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  sendFormDataForAuth: (formData) => dispatch(sendFormDataForAuth(formData)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BtnSendFormAuthPage)
