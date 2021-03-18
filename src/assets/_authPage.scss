@@ -108,6 +108,7 @@
                 }
             }
             &__input {
+                outline: none;
                 display: flex;
                 align-items: center;
                 margin-top: 5px;
@@ -128,6 +129,7 @@
                 font-family: var(--font-family);
 
                 &--error {
+                    outline: none;
                     font-size: 18px;
                     line-height: 30px;
                     padding-left: 2%;

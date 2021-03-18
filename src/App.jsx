@@ -12,7 +12,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          {/* TODO different when user non-auth and post-auth */}
           <Route path="/auth-user" component={AuthPage} />
           <Redirect from="/" to="/auth-user" />
           <Redirect from="*" to="/auth-user" />

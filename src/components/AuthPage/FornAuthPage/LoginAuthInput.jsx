@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import { memo, useState } from 'react'
+import { validateLogin } from '../../../utils/valdationForm'
 
-const Component = (props) => {
+const Component = ({ setLoginNullOrHaveText }) => {
   const [loginCheck, setLoginCheck] = useState(true)
   return (
     <div className="login form-auth__login">
@@ -9,14 +10,22 @@ const Component = (props) => {
       <input
         className={loginCheck ? 'login__input' : 'login__input--error'}
         onBlur={(e) => {
-          e.currentTarget.value === ''
-            ? setLoginCheck(false)
-            : setLoginCheck(true)
+          validateLogin(
+            e.currentTarget.value,
+            setLoginCheck,
+            setLoginNullOrHaveText,
+            'blur',
+          )
         }}
         type="text"
         required
         onChange={(e) => {
-          props.setLoginNullOrHaveText(e.currentTarget.value)
+          validateLogin(
+            e.currentTarget.value,
+            setLoginCheck,
+            setLoginNullOrHaveText,
+            'validate',
+          )
         }}
       />
     </div>
