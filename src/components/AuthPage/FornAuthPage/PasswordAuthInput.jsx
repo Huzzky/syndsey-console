@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 
-const Component = () => {
+const Component = ({ setPasswordNullOrHaveText }) => {
   const [passwordCheck, setPasswordCheck] = useState(true)
   return (
     <div className="password form-auth__password">
@@ -8,6 +8,11 @@ const Component = () => {
         Пароль
       </p>
       <input
+        onChange={(e) => {
+          e.currentTarget.value.length > 8
+            ? setPasswordNullOrHaveText(e.currentTarget.value)
+            : setPasswordNullOrHaveText('')
+        }}
         onBlur={(e) => {
           e.currentTarget.value === ''
             ? setPasswordCheck(false)

@@ -2,21 +2,24 @@ import '../../../assets/_animation.scss'
 import { useState } from 'react'
 import { AnimationLoader } from '../../Core/AnimationLoader'
 
-export const BtnSendFormAuthPage = (props) => {
+export const BtnSendFormAuthPage = ({ formCheck }) => {
   const [send, setSend] = useState(false)
 
   return !send ? (
     <button
       onClick={(e) => {
-        e.preventDefault()
+        console.log(formCheck)
         setSend(true)
       }}
       className={
         'form-auth__form__button-send' +
-        (props.loginCheck === '' ? '--disabled' : '')
+        (formCheck.loginNullOrHaveText === '' ||
+        formCheck.passwordNullOrHaveText === ''
+          ? '--disabled'
+          : '')
       }
       type="submit"
-      disabled={props.loginCheck === '' ? 'disabled' : ''}
+      disabled={formCheck.loginNullOrHaveText === '' ? 'disabled' : ''}
     >
       Войти
     </button>
