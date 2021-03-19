@@ -312,6 +312,58 @@
             }
         }
 
+        &__error {
+            &__emoji-mah {
+                border: 2px solid #CF2C00;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                color: red;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
+            .emoji-mah {
+                display: flex;
+                flex-direction: column;
+                &__eyes {
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding-top: 6px;
+                    // margin-left: -1px;
+                }
+                &__eyes--eye {
+                    border: 1px solid #CF2C00;
+                    border-radius: 50%;
+                    width: 0px;
+                    height: 0px;
+                    color: #D8522E;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                }
+                
+                &__pre-mouth {
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 4px;
+                }
+                &__mouth {
+                    border: 1px solid #CF2C00;
+                    border-radius: 20px;
+                    width: 8px;
+                    height: 0px;
+                    color: #D8522E;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    -ms-border-radius: 20px;
+                    -o-border-radius: 20px;
+}
+            }
+        }
+
 
     }
 }
