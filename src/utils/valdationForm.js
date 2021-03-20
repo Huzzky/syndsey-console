@@ -47,10 +47,12 @@ const valueValidate = (
   typeInput,
 ) => {
   if (!reTestValue(value, typeInput)) {
+    console.log('523')
     setValueCheckFunc(true)
     setValueNullOrHaveTextFunc(value)
     return true
   } else {
+    console.log('123')
     setValueCheckFunc(false)
     setValueNullOrHaveTextFunc('')
     return false
