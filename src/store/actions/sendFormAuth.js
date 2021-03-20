@@ -17,8 +17,8 @@ const sendFormDataForAuth = ({
 
     requestToServerForAuth(
       loginNullOrHaveText,
-      passwordNullOrHaveText,
       subloginNullOrHaveText,
+      passwordNullOrHaveText,
     )
       .then((res) => {
         dispatch({
@@ -26,10 +26,10 @@ const sendFormDataForAuth = ({
           login_user: res.list['about.name'],
         })
       })
-      .catch((e) => {
-        console.log(e.explain)
+      .catch((errorAuth) => {
         dispatch({
           type: ERROR_AUTH_USER,
+          errorAuth: errorAuth,
         })
       })
   }

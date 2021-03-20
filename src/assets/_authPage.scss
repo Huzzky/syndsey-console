@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50%;
     width: 30%;
     
     &__logo {
@@ -41,9 +40,12 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                margin-bottom: 1.5em;
+
             }
             &__button-send--disabled{
                 width: 6.5em;
+                margin-bottom: 1.5em;
                 height: 2.4em;
                 background: linear-gradient(0deg, #C4C4C4, #C4C4C4), linear-gradient(180deg, #45A6FF 0%, #0055FB 100%);
                 border-radius: 5px;
@@ -83,6 +85,7 @@
             font-style: normal;
             font-weight: normal;
             font-family: sans-serif;
+            
             
         }
 
@@ -313,6 +316,52 @@
         }
 
         &__error {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 0.6em;
+            
+            &--background {
+                padding: 0.6em;
+                background: rgba(207, 44, 0, 0.1);
+                border-radius: 5px;
+                -moz-border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -o-border-radius: 5px;
+                -ms-border-radius: 5px;
+            }
+
+            &__desc-labels {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                &--empty-place {
+                    width: 22px;
+                    height: 22px;
+                }
+            }
+            &__label {
+                font-family: var(--font-family);
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 30px;
+                color: #CF2C00;
+                padding-left: 0.5em;
+                &--cause {
+                    font-family: var(--font-family);
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: #CF2C00;
+                    opacity: 0.5;
+                    padding-left: 1em;
+
+                }
+            }
+            
             &__emoji-mah {
                 border: 2px solid #CF2C00;
                 border-radius: 50%;
@@ -331,7 +380,6 @@
                     display: flex;
                     justify-content: space-evenly;
                     padding-top: 6px;
-                    // margin-left: -1px;
                 }
                 &__eyes--eye {
                     border: 1px solid #CF2C00;

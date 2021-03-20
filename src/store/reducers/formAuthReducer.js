@@ -7,10 +7,13 @@ import {
 
 const initialState = {
   isLoading: false,
-  isError: true,
+  errorAuth: {},
 }
 
-export const formAuthReducer = (state = initialState, { type, login_user }) => {
+export const formAuthReducer = (
+  state = initialState,
+  { type, login_user, errorAuth },
+) => {
   switch (type) {
     case REQUEST_AUTH_USER:
       return {
@@ -22,13 +25,13 @@ export const formAuthReducer = (state = initialState, { type, login_user }) => {
       return {
         ...state,
         isLoading: false,
-        isError: false,
+        errorAuth: {},
       }
     case ERROR_AUTH_USER:
       return {
         ...state,
         isLoading: false,
-        isError: true,
+        errorAuth: errorAuth,
       }
     default:
       return state

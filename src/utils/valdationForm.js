@@ -1,22 +1,20 @@
-const validateLogin = (login, setLoginCheck, setLoginNullOrHaveText, type) => {
-  let flag = login === '' ? true : false
-  if (type === 'blur' && flag) {
-    if (login === '') {
-      setLoginCheck(false)
-      return false
-    } else {
-      setLoginCheck(true)
-      return true
-    }
-  } else if (type === 'validate') {
-    if (!reTestLogin(login)) {
-      setLoginCheck(true)
-      setLoginNullOrHaveText(login)
-      return true
-    } else {
-      setLoginCheck(false)
-      setLoginNullOrHaveText('')
-      return false
+import { formInput, formTypeValidate } from '../const'
+
+const validateInputForm = (
+  value,
+  setValueCheckFunc,
+  setValueNullOrHaveTextFunc,
+  typeValidate,
+  typeInput,
+) => {
+  let flag = value === '' ? true : false
+  if (typeValidate === formTypeValidate.blur && flag) {
+    blurCheck(value, setValueCheckFunc)
+  } else if (typeValidate === formTypeValidate.validate) {
+    if (typeInput === formInput.login) {
+      loginValidate(value, setValueCheckFunc, setValueNullOrHaveTextFunc)
+    } else if (typeInput === formInput.password) {
+    } else if (typeInput === formInput.sublogin) {
     }
   }
 }
@@ -26,4 +24,30 @@ const reTestLogin = (login) => {
   return re.test(login)
 }
 
-export { validateLogin }
+const blurCheck = (value, setValueCheckFunc) => {
+  if (value === '') {
+    setValueCheckFunc(false)
+    return false
+  } else {
+    setValueCheckFunc(true)
+    return true
+  }
+}
+
+const loginValidate = (
+  value,
+  setValueCheckFunc,
+  setValueNullOrHaveTextFunc,
+) => {
+  if (!reTestLogin(value)) {
+    setValueCheckFunc(true)
+    setValueNullOrHaveTextFunc(value)
+    return true
+  } else {
+    setValueCheckFunc(false)
+    setValueNullOrHaveTextFunc('')
+    return false
+  }
+}
+
+export { validateInputForm }

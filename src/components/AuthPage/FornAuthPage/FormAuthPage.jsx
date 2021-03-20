@@ -7,7 +7,7 @@ import { LoginAuthInput } from './LoginAuthInput'
 import { PasswordAuthInput } from './PasswordAuthInput'
 import { SubloginAuthInput } from './SubloginAuthInput'
 
-const FormAuthPage = ({ isError }) => {
+const FormAuthPage = ({ errorAuth }) => {
   const [loginNullOrHaveText, setLoginNullOrHaveText] = useState('')
   const [subloginNullOrHaveText, setSubloginNullOrHaveText] = useState('')
   const [passwordNullOrHaveText, setPasswordNullOrHaveText] = useState('')
@@ -20,7 +20,11 @@ const FormAuthPage = ({ isError }) => {
     <div className="form-auth">
       <form action="submit" className="form-auth__form">
         <label className="form-auth__label">API-консолька</label>
-        {isError ? <ErrorMessageFormAuth /> : <></>}
+        {Object.keys(errorAuth).length !== 0 ? (
+          <ErrorMessageFormAuth errorAuth={errorAuth} />
+        ) : (
+          <></>
+        )}
         <LoginAuthInput setLoginNullOrHaveText={setLoginNullOrHaveText} />
         <SubloginAuthInput
           setSubloginNullOrHaveText={setSubloginNullOrHaveText}
@@ -35,11 +39,11 @@ const FormAuthPage = ({ isError }) => {
 }
 
 FormAuthPage.propTypes = {
-  isError: PropTypes.bool,
+  errorAuth: PropTypes.object,
 }
 
 const mapStateToProps = ({ formAuthReducer }) => ({
-  isError: formAuthReducer.isError,
+  errorAuth: formAuthReducer.errorAuth,
 })
 
 export default connect(mapStateToProps)(FormAuthPage)
