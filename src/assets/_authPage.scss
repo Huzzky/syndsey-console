@@ -256,6 +256,7 @@
                 }
             }
             &__input {
+                outline: none;
                 display: flex;
                 align-items: center;
                 margin-top: 5px;
@@ -278,7 +279,9 @@
                 font-style: bold;
                 font-weight: normal;
                 &--error {
-                    font-size: 18px;
+                outline: none;
+
+                font-size: 18px;
                     line-height: 30px;
                     padding-left: 2%;
                     color: #0D0D0D;
@@ -303,6 +306,7 @@
                 cursor: pointer;
             }
             &__input:focus {
+                
                 outline: none;
                 box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
                 border: 1px solid rgba(0, 0, 0, 0.4);

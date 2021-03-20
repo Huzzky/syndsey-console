@@ -11,17 +11,23 @@ const validateInputForm = (
   if (typeValidate === formTypeValidate.blur && flag) {
     blurCheck(value, setValueCheckFunc)
   } else if (typeValidate === formTypeValidate.validate) {
-    if (typeInput === formInput.login) {
-      loginValidate(value, setValueCheckFunc, setValueNullOrHaveTextFunc)
-    } else if (typeInput === formInput.password) {
-    } else if (typeInput === formInput.sublogin) {
-    }
+    valueValidate(
+      value,
+      setValueCheckFunc,
+      setValueNullOrHaveTextFunc,
+      typeInput,
+    )
   }
 }
 
-const reTestLogin = (login) => {
-  const re = /[^0-9a-z@._-]/gi
-  return re.test(login)
+const reTestValue = (value, typeInput) => {
+  if (typeInput === formInput.login) {
+    const re = /[^0-9a-z@._-]/gi
+    return re.test(value)
+  } else if (typeInput === formInput.password) {
+    const re = /[^0-9a-z@~`!#$№;:(){}"%^&*?=+-_. -]/gi
+    return re.test(value)
+  }
 }
 
 const blurCheck = (value, setValueCheckFunc) => {
@@ -34,12 +40,13 @@ const blurCheck = (value, setValueCheckFunc) => {
   }
 }
 
-const loginValidate = (
+const valueValidate = (
   value,
   setValueCheckFunc,
   setValueNullOrHaveTextFunc,
+  typeInput,
 ) => {
-  if (!reTestLogin(value)) {
+  if (!reTestValue(value, typeInput)) {
     setValueCheckFunc(true)
     setValueNullOrHaveTextFunc(value)
     return true

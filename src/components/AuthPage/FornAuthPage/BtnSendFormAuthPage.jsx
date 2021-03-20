@@ -19,7 +19,12 @@ const BtnSendFormAuthPage = ({ formCheck, isLoading, sendFormDataForAuth }) => {
           : '')
       }
       type="submit"
-      disabled={formCheck.loginNullOrHaveText === '' ? 'disabled' : ''}
+      disabled={
+        formCheck.loginNullOrHaveText === '' ||
+        formCheck.passwordNullOrHaveText === ''
+          ? 'disabled'
+          : ''
+      }
     >
       Войти
     </button>

@@ -5,30 +5,28 @@ import { formInput, formTypeValidate } from '../../../const'
 
 const Component = ({ setLoginNullOrHaveText }) => {
   const [loginCheck, setLoginCheck] = useState(true)
+
+  const validateLogin = (login, type) => {
+    validateInputForm(
+      login,
+      setLoginCheck,
+      setLoginNullOrHaveText,
+      type,
+      formInput.login,
+    )
+  }
   return (
     <div className="login form-auth__login">
       <p className={loginCheck ? 'login__p' : 'login__p--error'}>Логин</p>
       <input
         className={loginCheck ? 'login__input' : 'login__input--error'}
         onBlur={(e) => {
-          validateInputForm(
-            e.currentTarget.value,
-            setLoginCheck,
-            setLoginNullOrHaveText,
-            formTypeValidate.blur,
-            formInput.login,
-          )
+          validateLogin(e.currentTarget.value, formTypeValidate.blur)
         }}
         type="text"
         required
         onChange={(e) => {
-          validateInputForm(
-            e.currentTarget.value,
-            setLoginCheck,
-            setLoginNullOrHaveText,
-            formTypeValidate.validate,
-            formInput.login,
-          )
+          validateLogin(e.currentTarget.value, formTypeValidate.validate)
         }}
       />
     </div>
