@@ -31,10 +31,10 @@ export const InputFormAuth = ({
         onBlur={(e) => {
           validateInput(e.currentTarget.value, formTypeValidate.blur)
         }}
-        type="text"
+        type={typeFormInput === 'login' ? 'test' : 'password'}
         required
         onChange={(e) => {
-          validateInput(e.currentTarget.value, formTypeValidate.validate)
+          validateInput(e.currentTarget.value.trim(), formTypeValidate.validate)
         }}
       />
     </>

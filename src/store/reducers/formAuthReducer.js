@@ -3,11 +3,12 @@ import {
   REQUEST_AUTH_USER,
   SUCCESS_AUTH_USER,
 } from '../../const'
-// import { userSetCookies } from '../cookies/userCookies'
+import { userSetCookies } from '../cookies/userCookies'
 
 const initialState = {
   isLoading: false,
   errorAuth: {},
+  userAuthSucces: false,
 }
 
 export const formAuthReducer = (
@@ -21,17 +22,22 @@ export const formAuthReducer = (
         isLoading: true,
       }
     case SUCCESS_AUTH_USER:
-      // userSetCookies(login_user)
+      userSetCookies(login_user)
       return {
         ...state,
         isLoading: false,
         errorAuth: {},
+        userAuthSucces: true,
       }
     case ERROR_AUTH_USER:
+      console.log(errorAuth.message)
       return {
         ...state,
         isLoading: false,
-        errorAuth: errorAuth,
+        errorAuth:
+          errorAuth.message === 'Failed to fetch'
+            ? { explain: 'Connection Error' }
+            : errorAuth,
       }
     default:
       return state

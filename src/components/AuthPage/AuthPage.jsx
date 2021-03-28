@@ -1,10 +1,10 @@
 import FormAuthPage from './FornAuthPage/FormAuthPage'
 import '../../assets/_authPage.scss'
-import { RequestCookieUserForAuth } from '../../store/cookies/userCookies'
+import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 
-const AuthPage = () => {
-  return RequestCookieUserForAuth() === undefined ? (
+const AuthPage = ({ userAuthSucces }) => {
+  return !userAuthSucces ? (
     <div className="auth-containter">
       <img className="auth-containter__logo" src="LOGO.svg" alt="Logo" />
       <FormAuthPage />
@@ -14,4 +14,8 @@ const AuthPage = () => {
   )
 }
 
-export default AuthPage
+const mapStateToProps = ({ formAuthReducer }) => ({
+  userAuthSucces: formAuthReducer.userAuthSucces,
+})
+
+export default connect(mapStateToProps)(AuthPage)

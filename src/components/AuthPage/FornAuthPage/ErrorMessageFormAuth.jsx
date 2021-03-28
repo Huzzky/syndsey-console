@@ -2,7 +2,6 @@ import { EmojiMahErrorMessageFormAuth } from '../../Core/EmojiMahErrorMessageFor
 import PropTypes from 'prop-types'
 
 export const ErrorMessageFormAuth = ({ errorAuth }) => {
-  console.log(errorAuth)
   return (
     <div className="form-auth__error">
       <div className="form-auth__error--background">
