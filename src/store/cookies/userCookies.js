@@ -16,10 +16,16 @@ const userSetCookies = (account, sublogin) => {
   )
 }
 
+const userRemoveCookies = (name, path) => {
+  const cookies = new Cookies()
+
+  cookies.remove(name, { path: path })
+}
+
 const RequestCookieUserForAuth = () => {
   const cookies = new Cookies()
 
   return cookies.get('user', { path: '/' })
 }
 
-export { userSetCookies, RequestCookieUserForAuth }
+export { userSetCookies, RequestCookieUserForAuth, userRemoveCookies }
