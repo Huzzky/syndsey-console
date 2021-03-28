@@ -5,9 +5,11 @@ import { Redirect } from 'react-router'
 
 const AuthPage = ({ userAuthSucces }) => {
   return !userAuthSucces ? (
-    <div className="auth-containter">
-      <img className="auth-containter__logo" src="LOGO.svg" alt="Logo" />
-      <FormAuthPage />
+    <div className="auth-page">
+      <div className="auth-containter">
+        <img className="auth-containter__logo" src="LOGO.svg" alt="Logo" />
+        <FormAuthPage />
+      </div>
     </div>
   ) : (
     <Redirect to="/api-console" />

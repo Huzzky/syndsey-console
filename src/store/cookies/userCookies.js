@@ -1,13 +1,14 @@
 import Cookies from 'universal-cookie'
 
-const userSetCookies = (login) => {
+const userSetCookies = (account, sublogin) => {
   const cookies = new Cookies()
 
   cookies.set(
     'user',
     {
       user: {
-        email: login,
+        email: account,
+        sublogin: sublogin,
         dateAuth: new Date(),
       },
     },

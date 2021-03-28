@@ -1,10 +1,12 @@
-// import PropTypes from 'prop-types'
-import { Redirect } from 'react-router'
+import HeaderApiConsole from './HeaderApiConsole/HeaderApiConsole'
+import '../../assets/_apiConsole.scss'
 
 const ApiConsolePage = () => {
-  return <div>fasdfd</div>
+  return (
+    <div className="api-console">
+      <HeaderApiConsole />
+    </div>
+  )
 }
-
-// ApiConsolePage.propTypes = {}
 
 export default ApiConsolePage

@@ -6,8 +6,12 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import ApiConsolePage from './components/ApiConsole/ApiConsolePage'
+import React, { Suspense } from 'react'
 import { RequestCookieUserForAuth } from './store/cookies/userCookies'
+// import ApiConsolePage from './components/ApiConsole/ApiConsolePage'
+const ApiConsolePage = React.lazy(() =>
+  import('./components/ApiConsole/ApiConsolePage'),
+)
 
 function App() {
   return (
@@ -20,7 +24,9 @@ function App() {
         )}
         <Switch>
           <Route path="/auth-user" component={AuthPage} />
-          <Route path="/api-console" component={ApiConsolePage} />
+          <Suspense fallback={<div>Загрузка...</div>}>
+            <Route path="/api-console" component={ApiConsolePage} />
+          </Suspense>
           <Redirect from="/" to="/auth-user" />
           <Redirect from="*" to="/auth-user" />
         </Switch>

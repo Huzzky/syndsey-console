@@ -13,7 +13,18 @@ const requestToServerForAuth = (login, sublogin, password) => {
     },
   })
 
-  return sendsay.request({ action: 'sys.settings.get', list: ['about.name'] })
+  return sendsay
+    .request({
+      action: 'pong',
+    })
+    .then(
+      (result) => {
+        return [result.account, result.sublogin]
+      },
+      (_) => {
+        return ['Ты', 'разраб']
+      },
+    )
 }
 
 export { requestToServerForAuth }

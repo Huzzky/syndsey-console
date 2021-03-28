@@ -23,7 +23,8 @@ const sendFormDataForAuth = ({
       .then((res) => {
         dispatch({
           type: SUCCESS_AUTH_USER,
-          login_user: res.list['about.name'],
+          account_user: res[0],
+          sublogin_user: res[1],
         })
       })
       .catch((errorAuth) => {
