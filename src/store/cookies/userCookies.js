@@ -7,7 +7,7 @@ const userSetCookies = (account, sublogin) => {
     'user',
     {
       user: {
-        email: account,
+        account: account,
         sublogin: sublogin,
         dateAuth: new Date(),
       },
