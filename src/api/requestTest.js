@@ -22,7 +22,7 @@ const requestToServerForAuth = (login, sublogin, password) => {
         return [result.account, result.sublogin]
       },
       (_) => {
-        return ['Ты', 'разраб']
+        return ['Error connection']
       },
     )
 }

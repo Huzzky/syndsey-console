@@ -21,11 +21,18 @@ const sendFormDataForAuth = ({
       passwordNullOrHaveText,
     )
       .then((res) => {
-        dispatch({
-          type: SUCCESS_AUTH_USER,
-          account_user: res[0],
-          sublogin_user: res[1],
-        })
+        if (res[0] === 'Error connection') {
+          dispatch({
+            type: ERROR_AUTH_USER,
+            errorAuth: { explain: res[0] },
+          })
+        } else {
+          dispatch({
+            type: SUCCESS_AUTH_USER,
+            account_user: res[0],
+            sublogin_user: res[1],
+          })
+        }
       })
       .catch((errorAuth) => {
         dispatch({
