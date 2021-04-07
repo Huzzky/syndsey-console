@@ -6,7 +6,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { Suspense } from 'react'
+import React, { Suspense, useLayoutEffect } from 'react'
 import { RequestCookieUserForAuth } from './store/cookies/userCookies'
 // import ApiConsolePage from './components/ApiConsole/ApiConsolePage'
 const ApiConsolePage = React.lazy(() =>
@@ -14,6 +14,9 @@ const ApiConsolePage = React.lazy(() =>
 )
 
 function App() {
+  useLayoutEffect(() => {
+    console.log(RequestCookieUserForAuth())
+  }, [])
   return (
     <div className="App">
       <Router>

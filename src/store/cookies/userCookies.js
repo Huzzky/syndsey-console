@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie'
+import Sendsay from 'sendsay-api'
 
 const userSetCookies = (account, sublogin) => {
   const cookies = new Cookies()
@@ -14,6 +15,8 @@ const userSetCookies = (account, sublogin) => {
     },
     { path: '/' },
   )
+
+  console.log(cookies.get('user', { path: '/' }))
 }
 
 const userRemoveCookies = (name, path) => {
@@ -23,8 +26,12 @@ const userRemoveCookies = (name, path) => {
 }
 
 const RequestCookieUserForAuth = () => {
+  const sendsay = new Sendsay()
   const cookies = new Cookies()
 
+  sendsay.setSessionFromCookie('user1')
+
+  console.log(cookies)
   return cookies.get('user', { path: '/' })
 }
 
