@@ -24,9 +24,19 @@
             color: #0d0d0d;
         }
         &__fullscreen-btn-container {
+            width: 32px;
+            height: 32px;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        &__fullscreen-btn-container:focus {
+            border: 2px solid rgba($color: #45a5ff, $alpha: 0.5);
+            border-radius: 7px;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            -ms-border-radius: 7px;
+            -o-border-radius: 7px;
         }
     }
 }
