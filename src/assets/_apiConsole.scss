@@ -1,10 +1,16 @@
 .api-console {
     &__header {
         padding-top: 10px;
+        padding-right: 15px;
+        padding-left: 15px;
+        display: flex;
+        justify-content: space-between;
+        &__container {
+            display: flex;
+        }
         &__title {
             display: flex;
             align-items: center;
-            padding-left: 15px;
         }
         &__label {
             padding-left: 20px;
@@ -15,8 +21,12 @@
             display: flex;
             align-items: center;
             font-size: 20px;
-            color: #0D0D0D;
+            color: #0d0d0d;
         }
-
+        &__fullscreen-btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

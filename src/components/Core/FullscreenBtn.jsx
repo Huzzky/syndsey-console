@@ -10,6 +10,7 @@ export const FullscreenBtn = () => {
     <div
       className="api-console__header__fullscreen-btn-container"
       onClick={() => {
+        console.log(fullScreenFuncMini)
         if (!fullscreenBool) {
           setFullscreenBool(true)
           document.documentElement.webkitRequestFullScreen()

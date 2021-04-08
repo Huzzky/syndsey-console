@@ -7,7 +7,7 @@ const HeaderApiConsole = () => {
   return (
     <header className="api-console__header">
       <HeaderTitle />
-      <div className="api-console__header__containter">
+      <div className="api-console__header__container">
         <ProfileTab />
         <LogOutButtonLink />
         <FullscreenBtn />
