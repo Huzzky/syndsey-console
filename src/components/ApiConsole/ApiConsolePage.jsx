@@ -1,5 +1,6 @@
 import HeaderApiConsole from './HeaderApiConsole/HeaderApiConsole'
 import '../../assets/_apiConsole.scss'
+import FormsApiConsole from './FormApiConsole/FormsApiConsole'
 
 const ApiConsolePage = () => {
   return (
@@ -8,6 +9,7 @@ const ApiConsolePage = () => {
       <div className="api-console__line"></div>
       {/* side bar */}
       <div className="api-console__line"></div>
+      <FormsApiConsole />
     </div>
   )
 }

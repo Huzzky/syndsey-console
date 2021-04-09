@@ -1,10 +1,12 @@
 .api-console {
+    display: grid;
+    grid-template-rows: 1fr 1px 1px 5fr;
     &__header {
-        padding-bottom: 10px;
-        padding-top: 10px;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-top: 1em;
+        padding-bottom: 1em;
         display: flex;
+        height: 50%;
+        width: 100%;
         justify-content: space-between;
         &__container {
             display: flex;
@@ -12,6 +14,7 @@
         &__title {
             display: flex;
             align-items: center;
+            margin-left: 1.2em;
         }
         &__label {
             padding-left: 20px;
@@ -30,6 +33,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-right: 1.2em;
         }
         &__fullscreen-btn-container:focus {
             border: 2px solid rgba($color: #45a5ff, $alpha: 0.5);
