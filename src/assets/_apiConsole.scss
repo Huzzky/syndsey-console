@@ -1,5 +1,6 @@
 .api-console {
     &__header {
+        padding-bottom: 10px;
         padding-top: 10px;
         padding-right: 15px;
         padding-left: 15px;
@@ -38,5 +39,28 @@
             -ms-border-radius: 7px;
             -o-border-radius: 7px;
         }
+    }
+
+    .link-log-out {
+        outline: none;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+        &__span {
+            height: 24px;
+            margin-right: 10px;
+        }
+    }
+
+    &__line {
+        background: #ffffff;
+        /* Borders (elements) */
+
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        border-radius: 5px;
     }
 }

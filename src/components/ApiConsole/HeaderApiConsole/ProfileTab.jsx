@@ -1,12 +1,13 @@
 import { RequestCookieUserForAuth } from '../../../store/cookies/userCookies'
+import '../../../assets/_profileTab.scss'
 
 const ProfileTab = () => {
   let profileInfo = RequestCookieUserForAuth().user
   return (
-    <div>
-      <span>{profileInfo.account}</span>
-      <span> : </span>
-      <span>{profileInfo.sublogin}</span>
+    <div className="profileTab">
+      <span className="profileTab__account-user">{profileInfo.account}</span>
+      <span className="profileTab__double-dot"> : </span>
+      <span className="profileTab__sublogin-user">{profileInfo.sublogin}</span>
     </div>
   )
 }
