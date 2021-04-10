@@ -1,9 +1,10 @@
 .api-console {
     display: grid;
-    grid-template-rows: 1fr 1px 1px 5fr;
+    height: 100%;
+    grid-template-rows: 50px 1px 50px 1px 5fr 1px 70px;
     &__header {
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 0.65em;
+        padding-bottom: 0.65em;
         display: flex;
         height: 50%;
         width: 100%;

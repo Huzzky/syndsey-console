@@ -4,6 +4,7 @@
     margin-top: 30px;
     &__container {
         display: grid;
+        height: 100%;
 
         grid-template-columns: 1fr 0.025fr 1fr;
         width: 100%;
@@ -14,12 +15,10 @@
         align-items: center;
     }
 
-    &__output-textarea {
-        width: 100%;
-        resize: vertical;
-    }
+    &__output-textarea,
     &__input-textarea {
         width: 100%;
-        resize: vertical;
+        height: 100%;
+        resize: none;
     }
 }
