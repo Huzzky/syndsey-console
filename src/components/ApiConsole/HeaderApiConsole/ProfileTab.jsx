@@ -1,7 +1,8 @@
 import { RequestCookieUserForAuth } from '../../../store/cookies/userCookies'
 import '../../../assets/_profileTab.scss'
+import { memo } from 'react'
 
-const ProfileTab = () => {
+const Component = () => {
   let profileInfo = RequestCookieUserForAuth().user
   return (
     <div className="profileTab">
@@ -12,4 +13,4 @@ const ProfileTab = () => {
   )
 }
 
-export default ProfileTab
+export const ProfileTab = memo(Component)

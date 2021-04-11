@@ -1,7 +1,8 @@
 import { validateInputForm } from '../../../utils/valdationForm'
 import { formTypeValidate } from '../../../const'
+import { memo } from 'react'
 
-export const InputFormAuth = ({
+const Component = ({
   setValueNullOrHaveTextFunc,
   setValueCheckFunc,
   value,
@@ -40,3 +41,5 @@ export const InputFormAuth = ({
     </>
   )
 }
+
+export const InputFormAuth = memo(Component)

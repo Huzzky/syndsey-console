@@ -1,7 +1,8 @@
 import { EmojiMahErrorMessageFormAuth } from '../../Core/EmojiMahErrorMessageFormAuth'
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
-export const ErrorMessageFormAuth = ({ errorAuth }) => {
+const Component = ({ errorAuth }) => {
   return (
     <div className="form-auth__error">
       <div className="form-auth__error--background">
@@ -20,6 +21,7 @@ export const ErrorMessageFormAuth = ({ errorAuth }) => {
   )
 }
 
-ErrorMessageFormAuth.propTypes = {
+Component.propTypes = {
   errorAuth: PropTypes.object,
 }
+export const ErrorMessageFormAuth = memo(Component)

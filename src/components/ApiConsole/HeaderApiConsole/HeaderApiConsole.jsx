@@ -1,7 +1,7 @@
 import { FullscreenBtn } from '../../Core/FullscreenBtn'
 import { HeaderTitle } from '../HeaderApiConsole/HeaderTitle'
-import { LogOutButtonLink } from './LogOutButtonLink'
-import ProfileTab from './ProfileTab'
+import LogOutButtonLink from './LogOutButtonLink'
+import { ProfileTab } from './ProfileTab'
 
 const HeaderApiConsole = () => {
   return (

@@ -1,4 +1,4 @@
-import { requestToServerForAuth } from '../../api/requestTest'
+import { requestToServerForAuth } from '../../api/requestToServer'
 import {
   REQUEST_AUTH_USER,
   SUCCESS_AUTH_USER,

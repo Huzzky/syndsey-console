@@ -16,8 +16,8 @@ const AuthPage = ({ userAuthSucces }) => {
   )
 }
 
-const mapStateToProps = ({ formAuthReducer }) => ({
-  userAuthSucces: formAuthReducer.userAuthSucces,
+const mapStateToProps = ({ userActionsReducer }) => ({
+  userAuthSucces: userActionsReducer.userAuthSucces,
 })
 
 export default connect(mapStateToProps)(AuthPage)

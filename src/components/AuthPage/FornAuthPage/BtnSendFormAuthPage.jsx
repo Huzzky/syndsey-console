@@ -3,6 +3,7 @@ import '../../../assets/_animation.scss'
 import { AnimationLoader } from '../../Core/AnimationLoader'
 import { connect } from 'react-redux'
 import { sendFormDataForAuth } from '../../../store/actions/sendFormAuth'
+import { memo } from 'react'
 
 const BtnSendFormAuthPage = ({ formCheck, isLoading, sendFormDataForAuth }) => {
   return !isLoading ? (
@@ -52,4 +53,6 @@ const mapDispatchToProps = (dispatch) => ({
   sendFormDataForAuth: (formData) => dispatch(sendFormDataForAuth(formData)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(BtnSendFormAuthPage)
+export default memo(
+  connect(mapStateToProps, mapDispatchToProps)(BtnSendFormAuthPage),
+)

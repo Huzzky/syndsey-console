@@ -1,15 +1,27 @@
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { userRemoveCookies } from '../../../store/cookies/userCookies'
+import { userActionsWithAccount } from '../../../store/actions/userActionsWithAccount'
+import { memo } from 'react'
 
-export const LogOutButtonLink = () => {
+const LogOutButtonLink = ({ userActionsWithAccount }) => {
   return (
     <Link
       className="link-log-out"
       to="/auth-user"
-      onClick={() => userRemoveCookies('user', '/')}
+      onClick={() => {
+        userRemoveCookies('user', '/')
+        userActionsWithAccount()
+      }}
     >
       <span className="link-log-out__span">Выйти</span>
       <img className="link-log-out__logo" src="log-out.svg" alt="log-out" />
     </Link>
   )
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  userActionsWithAccount: () => dispatch(userActionsWithAccount()),
+})
+
+export default memo(connect(null, mapDispatchToProps)(LogOutButtonLink))

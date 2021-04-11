@@ -8,7 +8,6 @@ import { userSetCookies } from '../cookies/userCookies'
 const initialState = {
   isLoading: false,
   errorAuth: {},
-  userAuthSucces: false,
 }
 
 export const formAuthReducer = (
@@ -27,7 +26,6 @@ export const formAuthReducer = (
         ...state,
         isLoading: false,
         errorAuth: {},
-        userAuthSucces: true,
       }
     case ERROR_AUTH_USER:
       return {
@@ -36,6 +34,8 @@ export const formAuthReducer = (
         errorAuth:
           errorAuth.message === 'Failed to fetch'
             ? { explain: 'Connection Error' }
+            : errorAuth.message === 'option expires is invalid'
+            ? { explain: 'Unknown Error. Please contact with support.' }
             : errorAuth,
       }
     default:
