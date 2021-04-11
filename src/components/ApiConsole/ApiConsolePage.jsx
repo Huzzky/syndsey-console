@@ -10,7 +10,9 @@ const ApiConsolePage = () => {
       {/* side bar */}
       <div></div>
       <div className="api-console__line"></div>
-      <FormsApiConsole />
+      <div className="api-console__forms-container">
+        <FormsApiConsole />
+      </div>
       <div className="api-console__line"></div>
 
       <div></div>

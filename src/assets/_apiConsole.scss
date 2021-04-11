@@ -2,6 +2,10 @@
     display: grid;
     height: 100%;
     grid-template-rows: 50px 1px 50px 1px 5fr 1px 70px;
+    &__forms-container {
+        background-color: #ffffff;
+        height: 100%;
+    }
     &__header {
         padding-top: 0.65em;
         padding-bottom: 0.65em;

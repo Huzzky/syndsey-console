@@ -1,19 +1,16 @@
 import { InputUserRequest } from './InputUserRequest'
 import { OutputUserRequest } from './OutputUserRequest'
 import '../../../assets/_formsApiConsole.scss'
+import { DragIconForms } from '../../Core/DragIconForms'
 
 const FormsApiConsole = () => {
   return (
     <div className="forms-api-console">
-      <div className="forms-api-console__container">
-        <InputUserRequest />
-        <img
-          src="drag-icon.svg"
-          alt="drag-icon"
-          className="forms-api-console__span-drag"
-        />
-        <OutputUserRequest />
+      <InputUserRequest />
+      <div className="forms-api-console__span-drag--container">
+        <DragIconForms />
       </div>
+      <OutputUserRequest />
     </div>
   )
 }
