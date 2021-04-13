@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import FormAuthPage from './FornAuthPage/FormAuthPage'
 import '../../assets/_authPage.scss'
 import { connect } from 'react-redux'
@@ -14,6 +15,10 @@ const AuthPage = ({ userAuthSucces }) => {
   ) : (
     <Redirect to="/api-console" />
   )
+}
+
+AuthPage.propTypes = {
+  userAuthSucces: PropTypes.bool,
 }
 
 const mapStateToProps = ({ userActionsReducer }) => ({

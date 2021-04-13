@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { userRemoveCookies } from '../../../store/cookies/userCookies'
@@ -18,6 +19,10 @@ const LogOutButtonLink = ({ userActionsWithAccount }) => {
       <img className="link-log-out__logo" src="log-out.svg" alt="log-out" />
     </Link>
   )
+}
+
+LogOutButtonLink.propTypes = {
+  userActionsWithAccount: PropTypes.func,
 }
 
 const mapDispatchToProps = (dispatch) => ({

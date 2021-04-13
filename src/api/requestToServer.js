@@ -27,4 +27,6 @@ const requestToServerForAuth = (login, sublogin, password) => {
     )
 }
 
+const sendToServerRequest = () => {}
+
 export { requestToServerForAuth }

@@ -5,6 +5,7 @@ export const OutputUserRequest = () => {
       <textarea
         disabled="disabled"
         className="forms-api-console__output-textarea"
+        value="Ararat"
       />
     </div>
   )

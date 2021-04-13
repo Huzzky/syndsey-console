@@ -1,6 +1,7 @@
 import HeaderApiConsole from './HeaderApiConsole/HeaderApiConsole'
 import '../../assets/_apiConsole.scss'
 import FormsApiConsole from './FormApiConsole/FormsApiConsole'
+import { HistoryRequestsComponent } from './HistoryRequests/HistoryRequestsComponent'
 
 const ApiConsolePage = () => {
   return (
@@ -8,7 +9,7 @@ const ApiConsolePage = () => {
       <HeaderApiConsole />
       <div className="api-console__line"></div>
       {/* side bar */}
-      <div></div>
+      <HistoryRequestsComponent />
       <div className="api-console__line"></div>
       <div className="api-console__forms-container">
         <FormsApiConsole />
