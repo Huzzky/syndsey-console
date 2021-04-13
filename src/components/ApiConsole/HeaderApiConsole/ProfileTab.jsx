@@ -3,7 +3,7 @@ import '../../../assets/_profileTab.scss'
 import { memo } from 'react'
 
 const Component = () => {
-  let profileInfo = RequestCookieUserForAuth().user
+  let profileInfo = JSON.parse(RequestCookieUserForAuth()).user
   return (
     <div className="profileTab">
       <span className="profileTab__account-user">{profileInfo.account}</span>

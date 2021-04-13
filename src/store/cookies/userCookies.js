@@ -1,9 +1,7 @@
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 
 const userSetCookies = (account, sublogin) => {
-  const cookies = new Cookies()
-
-  cookies.set(
+  Cookies.set(
     'user',
     {
       user: {
@@ -12,22 +10,18 @@ const userSetCookies = (account, sublogin) => {
         dateAuth: new Date(),
       },
     },
-    { path: '/' },
+    { expires: 1, path: '/' },
   )
 
-  console.log(cookies.get('user', { path: '/' }))
+  console.log(Cookies.get('user', { path: '/' }))
 }
 
 const userRemoveCookies = (name, path) => {
-  const cookies = new Cookies()
-
-  cookies.remove(name, { path: path })
+  Cookies.remove(name, { path: path })
 }
 
 const RequestCookieUserForAuth = () => {
-  const cookies = new Cookies()
-
-  return cookies.get('user', { path: '/' })
+  return Cookies.get('user', { path: '/' })
 }
 
 export { userSetCookies, RequestCookieUserForAuth, userRemoveCookies }
