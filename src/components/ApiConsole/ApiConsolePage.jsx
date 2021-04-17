@@ -6,7 +6,6 @@ import { FooterApiConsoleComponent } from './FooterApiConsole/FooterApiConsoleCo
 import { RequestCookieUserForAuth } from '../../store/cookies/userCookies'
 import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
-import { userActionsReducer } from '../../store/reducers/userActionsReducer'
 
 const ApiConsolePage = ({ userAuthSucces }) => {
   console.log(userAuthSucces)

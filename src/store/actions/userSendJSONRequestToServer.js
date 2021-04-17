@@ -18,7 +18,10 @@ const userSendJSONRequestToServer = (userOperationRequestToServer) => {
             type: USER_SEND_OPERATION_JSON_ERROR,
           })
         } else {
-          dispatch({})
+          dispatch({
+            type: USER_SEND_OPERATION_JSON_SUCCESS,
+            answerFromServerWithJSON: userOperationRequestToServer,
+          })
         }
       })
       .catch((errorAuth) => {

@@ -9,7 +9,6 @@ import {
 import React, { Suspense } from 'react'
 import { RequestCookieUserForAuth } from './store/cookies/userCookies'
 import { connect } from 'react-redux'
-import { userActionsReducer } from './store/reducers/userActionsReducer'
 import { updateAuthUserWithCookies } from './store/actions/updateAuthUserWithCookies'
 const ApiConsolePage = React.lazy(() =>
   import('./components/ApiConsole/ApiConsolePage'),

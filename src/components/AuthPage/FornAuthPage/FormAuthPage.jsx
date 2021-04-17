@@ -11,11 +11,7 @@ const FormAuthPage = ({ errorAuth }) => {
   const [loginNullOrHaveText, setLoginNullOrHaveText] = useState('')
   const [subloginNullOrHaveText, setSubloginNullOrHaveText] = useState('')
   const [passwordNullOrHaveText, setPasswordNullOrHaveText] = useState('')
-  const formCheck = {
-    loginNullOrHaveText,
-    subloginNullOrHaveText,
-    passwordNullOrHaveText,
-  }
+
   return (
     <div className="form-auth">
       <form action="submit" className="form-auth__form">
@@ -32,7 +28,13 @@ const FormAuthPage = ({ errorAuth }) => {
         <PasswordAuthInput
           setPasswordNullOrHaveText={setPasswordNullOrHaveText}
         />
-        <BtnSendFormAuthPage formCheck={formCheck} />
+        <BtnSendFormAuthPage
+          formCheck={{
+            loginNullOrHaveText,
+            subloginNullOrHaveText,
+            passwordNullOrHaveText,
+          }}
+        />
       </form>
     </div>
   )
