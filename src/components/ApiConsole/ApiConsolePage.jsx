@@ -2,6 +2,7 @@ import HeaderApiConsole from './HeaderApiConsole/HeaderApiConsole'
 import '../../assets/_apiConsole.scss'
 import FormsApiConsole from './FormApiConsole/FormsApiConsole'
 import { HistoryRequestsComponent } from './HistoryRequests/HistoryRequestsComponent'
+import { FooterApiConsoleComponent } from './FooterApiConsole/FooterApiConsoleComponent'
 
 const ApiConsolePage = () => {
   return (
@@ -16,7 +17,7 @@ const ApiConsolePage = () => {
       </div>
       <div className="api-console__line"></div>
 
-      <div></div>
+      <FooterApiConsoleComponent />
     </div>
   )
 }

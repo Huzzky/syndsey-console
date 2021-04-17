@@ -1,24 +1,41 @@
+import { useState } from 'react'
 import '../../../assets/_historyRequestsComponent.scss'
+import Drowdown from './Drowdown'
+
+let HistoryRequestsArr = ['1', 2, 3]
 
 export const HistoryRequestsComponent = () => {
-  return (
-    <div className="history-component">
-      <div className="history-component__request-container">
+  const [dropdownActive, setDropdownActive] = useState(false)
+
+  let HistoryRequestsHTML = HistoryRequestsArr.map((value, index) => {
+    console.log(index)
+    return (
+      <div key={index} className="history-component__request-container">
         <div className="history-component__request">
-          <div className="history-component__request__action-result--false"></div>
+          <div className="history-component__request__action-result--true"></div>
           <div className="history-component__request__action-type">
             track.get
           </div>
-          <div className="history-component__request__action-menu">
+          <div
+            className="history-component__request__action-menu"
+            onClick={() => {
+              dropdownActive
+                ? setDropdownActive(false)
+                : setDropdownActive(true)
+            }}
+          >
             <div></div>
             <div></div>
             <div></div>
           </div>
         </div>
-        <div className="history-component__dropdown--active">
-          <div>Выполнить</div>
-        </div>
+        <Drowdown
+          dropdownActiveBool={dropdownActive}
+          setDropdownActiveBool={setDropdownActive}
+        />
       </div>
-    </div>
-  )
+    )
+  })
+
+  return <div className="history-component">{HistoryRequestsHTML}</div>
 }
