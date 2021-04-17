@@ -37,10 +37,10 @@ const BtnSendFormAuthPage = ({ formCheck, isLoading, sendFormDataForAuth }) => {
 }
 
 BtnSendFormAuthPage.propTypes = {
-  formCheck: PropTypes.shape({
-    loginNullOrHaveText: PropTypes.string,
-    passwordNullOrHaveText: PropTypes.string,
-  }),
+  // formCheck: PropTypes.shape({
+  //   loginNullOrHaveText: PropTypes.string,
+  //   passwordNullOrHaveText: PropTypes.string,
+  // }),
   isLoading: PropTypes.bool,
   sendFormDataForAuth: PropTypes.func,
 }

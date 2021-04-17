@@ -8,7 +8,6 @@ export const HistoryRequestsComponent = () => {
   const [dropdownActive, setDropdownActive] = useState(false)
 
   let HistoryRequestsHTML = HistoryRequestsArr.map((value, index) => {
-    console.log(index)
     return (
       <div key={index} className="history-component__request-container">
         <div className="history-component__request">

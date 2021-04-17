@@ -1,4 +1,8 @@
 import Sendsay from 'sendsay-api'
+import {
+  RequestCookieUserForAuth,
+  userRemoveCookies,
+} from '../store/cookies/userCookies'
 
 const requestToServerForAuth = (login, sublogin, password) => {
   let sendsay = new Sendsay({
@@ -15,18 +19,56 @@ const requestToServerForAuth = (login, sublogin, password) => {
 
   return sendsay
     .request({
-      action: 'pong',
+      action: 'sys.user.apikey.create',
+    })
+    .then((result) => {
+      return [login, sublogin, result.apikey]
+    })
+    .catch((_) => {
+      return ['Error connection']
+    })
+}
+
+const sendToServerRequest = () => {
+  let sendsay = new Sendsay()
+
+  return sendsay.login({}).then(() => {
+    sendsay
+      .request({
+        action: 'pong',
+      })
+      .then(
+        (result) => {
+          return [result.account, result.sublogin]
+        },
+        (_) => {
+          return ['Error connection']
+        },
+      )
+  })
+}
+
+const logoutUserAndDeleteAPIKey = () => {
+  let user = JSON.parse(RequestCookieUserForAuth())
+  console.log(user.user.apiKey)
+  let sendsay = new Sendsay({ apiKey: user.user.apiKey })
+  return sendsay
+    .request({
+      action: 'sys.user.apikey.delete',
     })
     .then(
       (result) => {
-        return [result.account, result.sublogin]
+        userRemoveCookies('user', '/')
+        return ['Complete delete']
       },
-      (_) => {
+      (e) => {
         return ['Error connection']
       },
     )
 }
 
-const sendToServerRequest = () => {}
-
-export { requestToServerForAuth }
+export {
+  requestToServerForAuth,
+  sendToServerRequest,
+  logoutUserAndDeleteAPIKey,
+}

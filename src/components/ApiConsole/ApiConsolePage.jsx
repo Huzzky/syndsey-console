@@ -3,9 +3,16 @@ import '../../assets/_apiConsole.scss'
 import FormsApiConsole from './FormApiConsole/FormsApiConsole'
 import { HistoryRequestsComponent } from './HistoryRequests/HistoryRequestsComponent'
 import { FooterApiConsoleComponent } from './FooterApiConsole/FooterApiConsoleComponent'
+import { RequestCookieUserForAuth } from '../../store/cookies/userCookies'
+import { Redirect } from 'react-router'
+import { connect } from 'react-redux'
+import { userActionsReducer } from '../../store/reducers/userActionsReducer'
 
-const ApiConsolePage = () => {
-  return (
+const ApiConsolePage = ({ userAuthSucces }) => {
+  console.log(userAuthSucces)
+  return RequestCookieUserForAuth() === undefined ? (
+    <Redirect to="/auth-user" />
+  ) : (
     <div className="api-console">
       <HeaderApiConsole />
       <div className="api-console__line"></div>
@@ -22,4 +29,8 @@ const ApiConsolePage = () => {
   )
 }
 
-export default ApiConsolePage
+const mapStateToProps = ({ userActionsReducer }) => ({
+  userAuthSucces: userActionsReducer.userAuthSucces,
+})
+
+export default connect(mapStateToProps)(ApiConsolePage)

@@ -6,24 +6,29 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { Suspense, useLayoutEffect } from 'react'
+import React, { Suspense } from 'react'
 import { RequestCookieUserForAuth } from './store/cookies/userCookies'
-// import ApiConsolePage from './components/ApiConsole/ApiConsolePage'
+import { connect } from 'react-redux'
+import { userActionsReducer } from './store/reducers/userActionsReducer'
+import { updateAuthUserWithCookies } from './store/actions/updateAuthUserWithCookies'
 const ApiConsolePage = React.lazy(() =>
   import('./components/ApiConsole/ApiConsolePage'),
 )
 
-function App() {
-  useLayoutEffect(() => {
-    console.log(RequestCookieUserForAuth())
-  }, [])
+function App({ authUser, updateAuthUserWithCookies }) {
+  // TODO подчистить компоненты и файлы
   return (
     <div className="App">
       <Router>
         {RequestCookieUserForAuth() === undefined ? (
           <Redirect to="/auth-user" />
         ) : (
-          <Redirect to="/api-console" />
+          /* TODO Сделать функцию на проверку актуальности аккаунта *(если
+            изменился пароль, то выход из аккаунта и удаление куки) */
+          <div>
+            {authUser ? '' : updateAuthUserWithCookies()}
+            <Redirect to="/api-console" />
+          </div>
         )}
         <Switch>
           <Route path="/auth-user" component={AuthPage} />
@@ -38,4 +43,12 @@ function App() {
   )
 }
 
-export default App
+const mapStateToProps = ({ userActionsReducer }) => ({
+  authUser: userActionsReducer.userAuthSucces,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  updateAuthUserWithCookies: () => dispatch(updateAuthUserWithCookies()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

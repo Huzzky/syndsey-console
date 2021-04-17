@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { userRemoveCookies } from '../../../store/cookies/userCookies'
 import { userActionsWithAccount } from '../../../store/actions/userActionsWithAccount'
 import { memo } from 'react'
 
@@ -11,7 +10,6 @@ const LogOutButtonLink = ({ userActionsWithAccount }) => {
       className="link-log-out"
       to="/auth-user"
       onClick={() => {
-        userRemoveCookies('user', '/')
         userActionsWithAccount()
       }}
     >

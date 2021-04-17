@@ -1,9 +1,24 @@
 import PropTypes from 'prop-types'
+import { memo } from 'react'
+import { connect } from 'react-redux'
+import { AnimationLoader } from '../../Core/AnimationLoader'
 
-const BtnSendJSONToServer = (props) => {
-  return <button>Отправить</button>
+const BtnSendJSONToServer = ({ isLoading, JSONFromUser }) => {
+  console.log(isLoading, JSONFromUser)
+  return isLoading ? <AnimationLoader /> : <button>Отправить</button>
 }
 
-BtnSendJSONToServer.propTypes = {}
+BtnSendJSONToServer.propTypes = {
+  isLoading: PropTypes.bool,
+}
 
-export default BtnSendJSONToServer
+const mapStateToProps = ({ userOperationsReducer }) => ({
+  isLoading: userOperationsReducer.isLoading,
+  JSONFromUser: userOperationsReducer.JSONFromUser,
+})
+
+const mapDispatchToProps = {}
+
+export default memo(
+  connect(mapStateToProps, mapDispatchToProps)(BtnSendJSONToServer),
+)

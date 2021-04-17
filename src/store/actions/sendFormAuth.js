@@ -31,6 +31,7 @@ const sendFormDataForAuth = ({
             type: SUCCESS_AUTH_USER,
             account_user: res[0],
             sublogin_user: res[1],
+            apiKey: res[2],
           })
         }
       })

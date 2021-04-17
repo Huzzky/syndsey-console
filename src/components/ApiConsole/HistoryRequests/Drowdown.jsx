@@ -15,6 +15,9 @@ const Drowdown = ({ dropdownActiveBool, setDropdownActiveBool }) => {
   )
 }
 
-Drowdown.propTypes = {}
+Drowdown.propTypes = {
+  dropdownActiveBool: PropTypes.bool,
+  setDropdownActiveBool: PropTypes.func,
+}
 
 export default Drowdown

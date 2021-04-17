@@ -1,5 +1,7 @@
 import { validateInputForm } from '../tests/validationForm.test'
 
+// TODO исправить тесты
+
 const login = {
   normalLogin: 'x_1616145609494603',
   problemLoginWithCyrillic: 'xф_1616145609494603',

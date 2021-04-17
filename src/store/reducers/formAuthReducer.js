@@ -12,7 +12,7 @@ const initialState = {
 
 export const formAuthReducer = (
   state = initialState,
-  { type, account_user, sublogin_user, errorAuth },
+  { type, account_user, sublogin_user, errorAuth, apiKey },
 ) => {
   switch (type) {
     case REQUEST_AUTH_USER:
@@ -21,7 +21,7 @@ export const formAuthReducer = (
         isLoading: true,
       }
     case SUCCESS_AUTH_USER:
-      userSetCookies(account_user, sublogin_user)
+      userSetCookies(account_user, sublogin_user, apiKey)
       return {
         ...state,
         isLoading: false,

@@ -3,7 +3,12 @@ import '../../../assets/_profileTab.scss'
 import { memo } from 'react'
 
 const Component = () => {
-  let profileInfo = JSON.parse(RequestCookieUserForAuth()).user
+  let profileInfo
+  try {
+    profileInfo = JSON.parse(RequestCookieUserForAuth()).user
+  } catch {
+    profileInfo = { account: '', sublogin: '' }
+  }
   return (
     <div className="profileTab">
       <span className="profileTab__account-user">{profileInfo.account}</span>

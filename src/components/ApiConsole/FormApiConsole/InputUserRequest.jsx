@@ -5,11 +5,11 @@ export const InputUserRequest = () => {
       <textarea
         className="forms-api-console__input-textarea"
         onChange={(e) => {
-          try {
-            console.log(JSON.parse(e.currentTarget.value))
-          } catch {
-            console.log(e.currentTarget.value)
-          }
+          // try {
+          //   console.log(JSON.parse(e.currentTarget.value))
+          // } catch {
+          //   console.log(e.currentTarget.value)
+          // }
         }}
       />
     </div>
