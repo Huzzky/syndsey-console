@@ -8,8 +8,8 @@ import {
 const initialState = {
   isLoading: false,
   isError: false,
-  answerFromServerWithJSON: [],
-  JSONFromUser: [],
+  answerFromServerWithJSON: [''],
+  JSONFromUser: [''],
 }
 
 export const userOperationsReducer = (

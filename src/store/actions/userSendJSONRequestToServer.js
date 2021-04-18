@@ -11,7 +11,7 @@ const userSendJSONRequestToServer = (userOperationRequestToServer) => {
       type: USER_SEND_OPERATION_JSON_REQUEST,
     })
 
-    sendToServerRequest()
+    sendToServerRequest(userOperationRequestToServer)
       .then((res) => {
         if (res[0] === 'Error connection') {
           dispatch({
@@ -20,7 +20,7 @@ const userSendJSONRequestToServer = (userOperationRequestToServer) => {
         } else {
           dispatch({
             type: USER_SEND_OPERATION_JSON_SUCCESS,
-            answerFromServerWithJSON: userOperationRequestToServer,
+            answerFromServerWithJSON: res[0],
           })
         }
       })

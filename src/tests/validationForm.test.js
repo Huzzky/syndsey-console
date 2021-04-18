@@ -1,6 +1,6 @@
 import { validateInputForm } from '../tests/validationForm.test'
 
-// TODO исправить тесты
+// BUG исправить тесты
 
 const login = {
   normalLogin: 'x_1616145609494603',

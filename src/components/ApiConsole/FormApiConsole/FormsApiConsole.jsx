@@ -1,5 +1,5 @@
-import { InputUserRequest } from './InputUserRequest'
-import { OutputUserRequest } from './OutputUserRequest'
+import InputUserRequest from './InputUserRequest'
+import OutputUserRequest from './OutputUserRequest'
 import '../../../assets/_formsApiConsole.scss'
 import { DragIconForms } from '../../Core/DragIconForms'
 

@@ -29,28 +29,24 @@ const requestToServerForAuth = (login, sublogin, password) => {
     })
 }
 
-const sendToServerRequest = () => {
-  let sendsay = new Sendsay()
-
-  return sendsay.login({}).then(() => {
-    sendsay
-      .request({
-        action: 'pong',
-      })
-      .then(
-        (result) => {
-          return [result.account, result.sublogin]
-        },
-        (_) => {
-          return ['Error connection']
-        },
-      )
-  })
+const sendToServerRequest = (userRequest) => {
+  let user = JSON.parse(RequestCookieUserForAuth())
+  let sendsay = new Sendsay({ apiKey: user.user.apiKey })
+  console.log(userRequest[0])
+  return sendsay.request(userRequest[0]).then(
+    (result) => {
+      console.log(result)
+      return [result]
+    },
+    (e) => {
+      console.log(e)
+      return ['Error connection']
+    },
+  )
 }
 
 const logoutUserAndDeleteAPIKey = () => {
   let user = JSON.parse(RequestCookieUserForAuth())
-  console.log(user.user.apiKey)
   let sendsay = new Sendsay({ apiKey: user.user.apiKey })
   return sendsay
     .request({
