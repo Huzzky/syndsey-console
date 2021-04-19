@@ -22,7 +22,7 @@ const BtnFormatJSON = ({ formatJSON, answerFromServerWithJSON }) => {
 }
 
 BtnFormatJSON.propTypes = {
-  JSONFromUser: PropTypes.array,
+  answerFromServerWithJSON: PropTypes.array,
   formatJSON: PropTypes.func,
 }
 
