@@ -10,18 +10,23 @@ const userActionsWithAccount = () => {
     dispatch({
       type: EXIT_USER_FROM_ACCOUNT_REQUEST,
     })
-
-    logoutUserAndDeleteAPIKey().then((result) => {
-      if (result[0] === 'Complete delete') {
-        dispatch({
-          type: EXIT_USER_FROM_ACCOUNT_SUCCESS,
-        })
-      } else if (result[0] === 'Error connection') {
-        dispatch({
-          type: EXIT_USER_FROM_ACCOUNT_ERROR,
-        })
-      }
-    })
+    try {
+      logoutUserAndDeleteAPIKey().then((result) => {
+        if (result[0] === 'Complete delete') {
+          dispatch({
+            type: EXIT_USER_FROM_ACCOUNT_SUCCESS,
+          })
+        } else if (result[0] === 'Error connection') {
+          dispatch({
+            type: EXIT_USER_FROM_ACCOUNT_ERROR,
+          })
+        }
+      })
+    } catch {
+      dispatch({
+        type: EXIT_USER_FROM_ACCOUNT_SUCCESS,
+      })
+    }
   }
 }
 

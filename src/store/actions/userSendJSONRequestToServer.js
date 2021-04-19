@@ -11,24 +11,36 @@ const userSendJSONRequestToServer = (userOperationRequestToServer) => {
       type: USER_SEND_OPERATION_JSON_REQUEST,
     })
 
-    sendToServerRequest(userOperationRequestToServer)
-      .then((res) => {
-        if (res[0] === 'Error connection') {
+    try {
+      sendToServerRequest(userOperationRequestToServer)
+        .then((res) => {
+          console.log(res)
+          if (res[0] === 'Error connection') {
+            dispatch({
+              type: USER_SEND_OPERATION_JSON_ERROR,
+              answerFromServerWithJSON: res[0],
+            })
+          } else {
+            dispatch({
+              type: USER_SEND_OPERATION_JSON_SUCCESS,
+              answerFromServerWithJSON: res[0],
+            })
+          }
+        })
+        .catch((errorAuth) => {
           dispatch({
             type: USER_SEND_OPERATION_JSON_ERROR,
+            answerFromServerWithJSON: errorAuth,
           })
-        } else {
-          dispatch({
-            type: USER_SEND_OPERATION_JSON_SUCCESS,
-            answerFromServerWithJSON: res[0],
-          })
-        }
-      })
-      .catch((errorAuth) => {
-        dispatch({
-          type: USER_SEND_OPERATION_JSON_ERROR,
         })
+    } catch {
+      dispatch({
+        type: USER_SEND_OPERATION_JSON_ERROR,
+        answerFromServerWithJSON: {
+          error: 'Unknown error. Please, reload web-site',
+        },
       })
+    }
   }
 }
 

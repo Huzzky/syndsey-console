@@ -6,7 +6,7 @@ let HistoryRequestsArr = ['1', 2, 3]
 
 export const HistoryRequestsComponent = () => {
   const [dropdownActive, setDropdownActive] = useState(false)
-
+  // TODO сделать запись в куки запросов (уникальность, название, ошибка или норм, сам запрос)
   let HistoryRequestsHTML = HistoryRequestsArr.map((value, index) => {
     return (
       <div key={index} className="history-component__request-container">

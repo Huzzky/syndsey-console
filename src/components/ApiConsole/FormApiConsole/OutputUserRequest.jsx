@@ -8,7 +8,13 @@ const OutputUserRequest = ({ answerFromServerJSON }) => {
       <textarea
         disabled="disabled"
         className="forms-api-console__output-textarea"
-        value={JSON.stringify(answerFromServerJSON[0], null, '\t')}
+        value={
+          answerFromServerJSON[0]
+            ? typeof answerFromServerJSON[0] === 'string'
+              ? answerFromServerJSON[0]
+              : JSON.stringify(answerFromServerJSON[0])
+            : ''
+        }
       />
     </div>
   )

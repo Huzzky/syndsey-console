@@ -9,11 +9,13 @@ const BtnSendJSONToServer = ({
   JSONFromUser,
   userSendJSONRequestToServer,
 }) => {
-  console.log(isLoading, JSONFromUser)
   return isLoading ? (
-    <AnimationLoader />
+    <div className="footer__btn--loader">
+      <AnimationLoader />
+    </div>
   ) : (
     <button
+      className="footer__btn--origin"
       onClick={() => {
         userSendJSONRequestToServer(JSONFromUser)
       }}

@@ -13,7 +13,6 @@ const InputUserRequest = ({ userWroteJSONRequest }) => {
             userWroteJSONRequest(JSON.parse(e.currentTarget.value))
           } catch {
             userWroteJSONRequest('')
-            console.log(e.currentTarget.value)
           }
         }}
       />

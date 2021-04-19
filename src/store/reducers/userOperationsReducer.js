@@ -3,6 +3,7 @@ import {
   USER_SEND_OPERATION_JSON_SUCCESS,
   USER_SEND_OPERATION_JSON_ERROR,
   USER_NORMALIZATED_JSON_SUCCESS,
+  USER_FORMATING_JSON,
 } from '../../const'
 
 const initialState = {
@@ -41,6 +42,12 @@ export const userOperationsReducer = (
         isLoading: false,
         answerFromServerWithJSON: [answerFromServerWithJSON],
       }
+    case USER_FORMATING_JSON: {
+      return {
+        ...state,
+        answerFromServerWithJSON: [answerFromServerWithJSON],
+      }
+    }
     default:
       return state
   }

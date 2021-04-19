@@ -39,8 +39,7 @@ const sendToServerRequest = (userRequest) => {
       return [result]
     },
     (e) => {
-      console.log(e)
-      return ['Error connection']
+      return [{ error: 'Bad connection' }]
     },
   )
 }
