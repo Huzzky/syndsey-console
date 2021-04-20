@@ -18,6 +18,8 @@ const validateInputForm = (
       typeInput,
     )
   }
+
+  return true
 }
 
 const reTestValue = (value, typeInput) => {

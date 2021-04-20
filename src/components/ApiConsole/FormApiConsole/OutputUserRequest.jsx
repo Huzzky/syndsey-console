@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 
 const OutputUserRequest = ({ answerFromServerJSON }) => {
-  console.log()
   return (
     <div className="forms-api-console__output--container">
       <label className="forms-api-console__textarea-label">Ответ:</label>

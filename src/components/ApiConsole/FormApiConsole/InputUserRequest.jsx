@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { userWroteJSONRequest } from '../../../store/actions/userWroteJSONRequest'
+import { parseToJSON } from '../../../utils/parseToJSON'
 
 const InputUserRequest = ({ userWroteJSONRequest }) => {
   return (
@@ -9,11 +10,7 @@ const InputUserRequest = ({ userWroteJSONRequest }) => {
       <textarea
         className="forms-api-console__input-textarea"
         onChange={(e) => {
-          try {
-            userWroteJSONRequest(JSON.parse(e.currentTarget.value))
-          } catch {
-            userWroteJSONRequest('')
-          }
+          userWroteJSONRequest(parseToJSON(e.currentTarget.value))
         }}
       />
     </div>

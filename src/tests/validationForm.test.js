@@ -1,6 +1,7 @@
-import { validateInputForm } from '../tests/validationForm.test'
-
 // BUG исправить тесты
+
+import { formInput, formTypeValidate } from '../const'
+import { validateInputForm } from '../utils/valdationForm'
 
 const login = {
   normalLogin: 'x_1616145609494603',
@@ -17,52 +18,9 @@ describe('Login', () => {
         login.normalLogin,
         () => {},
         () => {},
-        'validate',
-        'login',
+        formTypeValidate.validate,
+        formInput.login,
       ),
     ).toBe(true)
-  })
-
-  test('should return false with problem login with cyrillic', () => {
-    expect(
-      validateInputForm(
-        login.problemLoginWithCyrillic,
-        () => {},
-        () => {},
-        'validate',
-      ),
-    ).toBeFalsy()
-  })
-
-  test('should return false with problem login with space', () => {
-    expect(
-      validateInputForm(
-        login.problemLoginWithSpace,
-        () => {},
-        () => {},
-        'validate',
-      ),
-    ).toBeFalsy()
-  })
-
-  test('should return false with problem login with space and cyrillic', () => {
-    expect(
-      validateInputForm(
-        login.problemLoginWithSpaceAndCyrillic,
-        () => {},
-        () => {},
-        'validate',
-      ),
-    ).toBeFalsy()
-  })
-  test('should return false with login null (blur)', () => {
-    expect(
-      validateInputForm(
-        login.loginNull,
-        () => {},
-        () => {},
-        'blur',
-      ),
-    ).toBeFalsy()
   })
 })
