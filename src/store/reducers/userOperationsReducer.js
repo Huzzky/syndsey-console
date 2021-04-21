@@ -5,6 +5,7 @@ import {
   USER_NORMALIZATED_JSON_SUCCESS,
   USER_FORMATING_JSON,
 } from '../../const'
+import { writeUserRequestInCookies } from '../cookies/userHistoryRequest'
 
 const initialState = {
   isLoading: false,
@@ -29,6 +30,8 @@ export const userOperationsReducer = (
         isLoading: true,
       }
     case USER_SEND_OPERATION_JSON_SUCCESS:
+      writeUserRequestInCookies({}, state.JSONFromUser, true)
+
       return {
         ...state,
         isError: false,
@@ -36,6 +39,7 @@ export const userOperationsReducer = (
         answerFromServerWithJSON: [answerFromServerWithJSON],
       }
     case USER_SEND_OPERATION_JSON_ERROR:
+      writeUserRequestInCookies(answerFromServerWithJSON, {}, false)
       return {
         ...state,
         isError: true,

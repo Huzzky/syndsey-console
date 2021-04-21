@@ -4,11 +4,7 @@ import { memo } from 'react'
 
 const Component = () => {
   let profileInfo
-  try {
-    profileInfo = JSON.parse(RequestCookieUserForAuth()).user
-  } catch {
-    profileInfo = { account: '', sublogin: '' }
-  }
+  profileInfo = JSON.parse(RequestCookieUserForAuth()).user
   return (
     <div className="profileTab">
       <span className="profileTab__account-user">{profileInfo.account}</span>

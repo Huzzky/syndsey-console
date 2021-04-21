@@ -39,7 +39,7 @@ const sendToServerRequest = (userRequest) => {
       return [result]
     },
     (e) => {
-      return [{ error: 'Bad connection' }]
+      return [{ error: e }]
     },
   )
 }
@@ -53,7 +53,7 @@ const logoutUserAndDeleteAPIKey = () => {
     })
     .then(
       (result) => {
-        userRemoveCookies('user', '/')
+        userRemoveCookies('user', 'http://localhost:8080/user-secret')
         return ['Complete delete']
       },
       (e) => {

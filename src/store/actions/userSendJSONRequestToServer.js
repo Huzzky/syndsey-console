@@ -14,7 +14,6 @@ const userSendJSONRequestToServer = (userOperationRequestToServer) => {
     try {
       sendToServerRequest(userOperationRequestToServer)
         .then((res) => {
-          console.log(res)
           if (res[0] === 'Error connection') {
             dispatch({
               type: USER_SEND_OPERATION_JSON_ERROR,
