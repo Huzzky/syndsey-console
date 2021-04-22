@@ -3,11 +3,8 @@ import Cookies from 'js-cookie'
 const writeUserRequestInCookies = (error, requestUser, haveError) => {
   let arrRequestUserHistory = []
 
-  let a = requestToUserRequestInCookies()
-  a === [] ? (arrRequestUserHistory = []) : (arrRequestUserHistory = a)
-
-  //   JSON.parse(JSON.stringify(['foo','bar']))
-  //   ------->    ["foo", "bar"]
+  let _ = requestToUserRequestInCookies()
+  _.length === 0 ? (arrRequestUserHistory = []) : (arrRequestUserHistory = _)
   arrRequestUserHistory.push({
     userRequest: { error: error, request: requestUser, haveError: haveError },
   })

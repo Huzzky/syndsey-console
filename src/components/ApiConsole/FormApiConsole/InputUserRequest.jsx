@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { userWroteJSONRequest } from '../../../store/actions/userWroteJSONRequest'
 import { parseToJSON } from '../../../utils/parseJSON'
 
-const InputUserRequest = ({ userWroteJSONRequest, JSONFromUser }) => {
+const InputUserRequest = ({ userWroteJSONRequest }) => {
   const [valueInput, setValueInput] = useState('')
   return (
     <div className="forms-api-console__input--container">
@@ -12,7 +12,13 @@ const InputUserRequest = ({ userWroteJSONRequest, JSONFromUser }) => {
       <textarea
         className="forms-api-console__input-textarea"
         onChange={(e) => {
-          setValueInput(e.currentTarget.value)
+          try {
+            setValueInput(
+              JSON.stringify(JSON.parse(e.currentTarget.value), null, '    '),
+            )
+          } catch {
+            setValueInput(e.currentTarget.value)
+          }
 
           userWroteJSONRequest(parseToJSON(e.currentTarget.value))
         }}
@@ -26,13 +32,9 @@ InputUserRequest.propTypes = {
   userWroteJSONRequest: PropTypes.func,
 }
 
-const mapToStateProp = ({ userOperationsReducer }) => ({
-  JSONFromUser: userOperationsReducer.JSONFromUser,
-})
-
 const mapDispatchToProps = (dispatch) => ({
   userWroteJSONRequest: (JSONFromUserInput) =>
     dispatch(userWroteJSONRequest(JSONFromUserInput)),
 })
 
-export default connect(mapToStateProp, mapDispatchToProps)(InputUserRequest)
+export default connect(null, mapDispatchToProps)(InputUserRequest)
