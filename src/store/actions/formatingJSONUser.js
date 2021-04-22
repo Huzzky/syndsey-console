@@ -1,12 +1,12 @@
 import { USER_FORMATING_JSON } from '../../const'
 
-const formatingJSONUser = (JSONUser) => {
+const formatingJSONUser = (serverJSON, userJSON) => {
   return (dispatch) => {
-    console.log(typeof JSON.stringify(JSONUser, null, '\t'))
     try {
       dispatch({
         type: USER_FORMATING_JSON,
-        answerFromServerWithJSON: JSON.stringify(JSONUser, null, '\t'),
+        answerFromServerWithJSON: JSON.stringify(serverJSON, null, '\t'),
+        JSONFromUser: JSON.stringify(userJSON, null, '\t'),
       })
     } catch {
       dispatch({

@@ -39,7 +39,11 @@ export const userOperationsReducer = (
         answerFromServerWithJSON: [answerFromServerWithJSON],
       }
     case USER_SEND_OPERATION_JSON_ERROR:
-      writeUserRequestInCookies(answerFromServerWithJSON, {}, false)
+      writeUserRequestInCookies(
+        answerFromServerWithJSON,
+        state.JSONFromUser,
+        state.isError,
+      )
       return {
         ...state,
         isError: true,

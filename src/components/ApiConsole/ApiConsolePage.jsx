@@ -1,7 +1,7 @@
 import HeaderApiConsole from './HeaderApiConsole/HeaderApiConsole'
 import '../../assets/_apiConsole.scss'
 import FormsApiConsole from './FormApiConsole/FormsApiConsole'
-import { HistoryRequestsComponent } from './HistoryRequests/HistoryRequestsComponent'
+import HistoryRequestsComponent from './HistoryRequests/HistoryRequestsComponent'
 import { FooterApiConsoleComponent } from './FooterApiConsole/FooterApiConsoleComponent'
 import { RequestCookieUserForAuth } from '../../store/cookies/userCookies'
 import { Redirect } from 'react-router'

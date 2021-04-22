@@ -1,19 +1,22 @@
 import { useState } from 'react'
+import { connect } from 'react-redux'
 import '../../../assets/_historyRequestsComponent.scss'
 import Drowdown from './Drowdown'
 
-let HistoryRequestsArr = ['1', 2, 3]
-
-export const HistoryRequestsComponent = () => {
+const HistoryRequestsComponent = ({ userRequestHistory }) => {
   const [dropdownActive, setDropdownActive] = useState(false)
+
   // TODO сделать запись в куки запросов (уникальность, название, ошибка или норм, сам запрос)
-  let HistoryRequestsHTML = HistoryRequestsArr.map((value, index) => {
+  let HistoryRequestsHTML = userRequestHistory.reverse().map((value, index) => {
+    console.log(value.userRequest)
     return (
       <div key={index} className="history-component__request-container">
         <div className="history-component__request">
-          <div className="history-component__request__action-result--true"></div>
+          <div
+            className={`history-component__request__action-result--${value.userRequest.haveError}`}
+          ></div>
           <div className="history-component__request__action-type">
-            track.get
+            {value.userRequest.request[0].action}
           </div>
           <div
             className="history-component__request__action-menu"
@@ -38,3 +41,9 @@ export const HistoryRequestsComponent = () => {
 
   return <div className="history-component">{HistoryRequestsHTML}</div>
 }
+
+const mapStateToProps = ({ userActionsReducer }) => ({
+  userRequestHistory: userActionsReducer.reqHistory,
+})
+
+export default connect(mapStateToProps)(HistoryRequestsComponent)

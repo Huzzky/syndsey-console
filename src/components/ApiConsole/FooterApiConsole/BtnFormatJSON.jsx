@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { formatingJSONUser } from '../../../store/actions/formatingJSONUser'
 
-const BtnFormatJSON = ({ formatJSON, answerFromServerWithJSON }) => {
+const BtnFormatJSON = ({ formatJSON, serverJSON, JSONFromUser }) => {
   return (
     <div
       className="footer__btn-format-json"
       onClick={() => {
-        formatJSON(answerFromServerWithJSON[0])
+        formatJSON(serverJSON[0], JSONFromUser[0])
       }}
     >
       <div className="footer__btn-format-json__logo">
@@ -27,11 +27,13 @@ BtnFormatJSON.propTypes = {
 }
 
 const mapStateToProps = ({ userOperationsReducer }) => ({
-  answerFromServerWithJSON: userOperationsReducer.answerFromServerWithJSON,
+  serverJSON: userOperationsReducer.answerFromServerWithJSON,
+  JSONFromUser: userOperationsReducer.JSONFromUser,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  formatJSON: (JSONUser) => dispatch(formatingJSONUser(JSONUser)),
+  formatJSON: (serverJSON, JSONUser) =>
+    dispatch(formatingJSONUser(serverJSON, JSONUser)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BtnFormatJSON)
