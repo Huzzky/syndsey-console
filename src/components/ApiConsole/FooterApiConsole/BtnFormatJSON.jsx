@@ -22,8 +22,9 @@ const BtnFormatJSON = ({ formatJSON, serverJSON, JSONFromUser }) => {
 }
 
 BtnFormatJSON.propTypes = {
-  answerFromServerWithJSON: PropTypes.array,
+  JSONFromUser: PropTypes.array,
   formatJSON: PropTypes.func,
+  serverJSON: PropTypes.array,
 }
 
 const mapStateToProps = ({ userOperationsReducer }) => ({

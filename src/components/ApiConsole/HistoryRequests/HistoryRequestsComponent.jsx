@@ -8,7 +8,7 @@ const HistoryRequestsComponent = ({ userRequestHistory }) => {
 
   // TODO сделать запись в куки запросов (уникальность, название, ошибка или норм, сам запрос)
   let HistoryRequestsHTML = userRequestHistory.reverse().map((value, index) => {
-    console.log(value.userRequest)
+    console.log(value)
     return (
       <div key={index} className="history-component__request-container">
         <div className="history-component__request">
@@ -16,7 +16,11 @@ const HistoryRequestsComponent = ({ userRequestHistory }) => {
             className={`history-component__request__action-result--${value.userRequest.haveError}`}
           ></div>
           <div className="history-component__request__action-type">
-            {value.userRequest.request[0].action}
+            {
+              value.userRequest.request[0][
+                Object.keys(value.userRequest.request[0])[0]
+              ]
+            }
           </div>
           <div
             className="history-component__request__action-menu"
