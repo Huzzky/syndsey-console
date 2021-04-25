@@ -32,7 +32,6 @@ const requestToServerForAuth = (login, sublogin, password) => {
 const sendToServerRequest = (userRequest) => {
   let user = JSON.parse(RequestCookieUserForAuth())
   let sendsay = new Sendsay({ apiKey: user.user.apiKey })
-  console.log(userRequest[0])
   return sendsay.request(userRequest[0]).then(
     (result) => {
       console.log(result)
@@ -52,11 +51,11 @@ const logoutUserAndDeleteAPIKey = () => {
       action: 'sys.user.apikey.delete',
     })
     .then(
-      (result) => {
+      (_) => {
         userRemoveCookies('user', 'http://localhost:8080/user-secret')
         return ['Complete delete']
       },
-      (e) => {
+      (_) => {
         return ['Error connection']
       },
     )

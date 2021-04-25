@@ -42,7 +42,7 @@ export const userOperationsReducer = (
       writeUserRequestInCookies(
         answerFromServerWithJSON,
         state.JSONFromUser,
-        state.isError,
+        false,
       )
       return {
         ...state,
