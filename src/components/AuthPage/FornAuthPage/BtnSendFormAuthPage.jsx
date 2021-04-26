@@ -6,11 +6,14 @@ import { sendFormDataForAuth } from '../../../store/actions/sendFormAuth'
 import { memo } from 'react'
 
 const BtnSendFormAuthPage = ({ formCheck, isLoading, sendFormDataForAuth }) => {
+  let sendFormAuthPage = (e, form) => {
+    e.preventDefault()
+    sendFormDataForAuth(form)
+  }
   return !isLoading ? (
     <button
       onClick={(e) => {
-        e.preventDefault()
-        sendFormDataForAuth(formCheck)
+        sendFormAuthPage(e, formCheck)
       }}
       className={
         'form-auth__form__button-send' +

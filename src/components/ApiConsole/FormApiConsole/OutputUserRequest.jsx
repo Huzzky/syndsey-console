@@ -1,19 +1,21 @@
 import { connect } from 'react-redux'
 
 const OutputUserRequest = ({ answerFromServerJSON }) => {
+  let valueSetOutput = (answerFromServerJSON) => {
+    return answerFromServerJSON
+      ? typeof answerFromServerJSON === 'string'
+        ? answerFromServerJSON
+        : JSON.stringify(answerFromServerJSON)
+      : ''
+  }
+
   return (
     <div className="forms-api-console__output--container">
       <label className="forms-api-console__textarea-label">Ответ:</label>
       <textarea
         disabled="disabled"
         className="forms-api-console__output-textarea"
-        value={
-          answerFromServerJSON[0]
-            ? typeof answerFromServerJSON[0] === 'string'
-              ? answerFromServerJSON[0]
-              : JSON.stringify(answerFromServerJSON[0])
-            : ''
-        }
+        value={valueSetOutput(answerFromServerJSON[0])}
       />
     </div>
   )

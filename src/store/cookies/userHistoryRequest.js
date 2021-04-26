@@ -14,7 +14,7 @@ const writeUserRequestInCookies = (error, requestUser, haveError) => {
 
   if (arrRequestUserHistory.length === 0) {
     arrRequestUserHistory.push(objUserRequest)
-  } else if (arrRequestUserHistory.length === 15) {
+  } else if (arrRequestUserHistory.length === 20) {
     arrRequestUserHistory.splice(arrRequestUserHistory.length - 1, 1)
     arrRequestUserHistory.unshift(objUserRequest)
   } else {
@@ -25,6 +25,7 @@ const writeUserRequestInCookies = (error, requestUser, haveError) => {
       ) {
         arrRequestUserHistory.splice(index, 1)
       }
+      return arrRequestUserHistory
     })
     arrRequestUserHistory.push(objUserRequest)
   }

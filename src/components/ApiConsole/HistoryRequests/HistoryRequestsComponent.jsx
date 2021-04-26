@@ -42,7 +42,15 @@ const HistoryRequestsComponent = ({ userRequestHistory }) => {
     )
   })
 
-  return <div className="history-component">{HistoryRequestsHTML}</div>
+  return (
+    <div className="history">
+      <div className="history-component">{HistoryRequestsHTML}</div>
+      <div className="history__container-delete">
+        <div className="history__gradient"></div>
+        <div className="history__btn-history-panel">X</div>
+      </div>
+    </div>
+  )
 }
 
 const mapStateToProps = ({ userActionsReducer }) => ({
