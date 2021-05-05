@@ -1,5 +1,6 @@
 import {
   CHOICE_REQUEST_IN_HISTORY_COMPONENT,
+  DELETE_HISTORY_REQUEST_USER,
   EXIT_USER_FROM_ACCOUNT_ERROR,
   EXIT_USER_FROM_ACCOUNT_REQUEST,
   EXIT_USER_FROM_ACCOUNT_SUCCESS,
@@ -21,6 +22,11 @@ export const userActionsReducer = (
   { type, choiceRequestInHistory, reqHistory },
 ) => {
   switch (type) {
+    case DELETE_HISTORY_REQUEST_USER:
+      return {
+        ...state,
+        reqHistory: [],
+      }
     case UPDATE_HISTORY_REQUEST_USER:
       return {
         ...state,

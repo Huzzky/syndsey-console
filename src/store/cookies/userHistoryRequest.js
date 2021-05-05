@@ -33,8 +33,14 @@ const writeUserRequestInCookies = (error, requestUser, haveError) => {
   Cookies.set('userRequest', arrRequestUserHistory, { expires: 1, path: '/' })
 }
 
-const removeUserRequestInCookies = (name, path) => {
-  Cookies.remove(name, { path: path })
+const removeUserRequestInCookies = () => {
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      Cookies.remove('userRequest', { path: '/api-console' })
+      resolve('deleted')
+    }, 1)
+  })
+  return promise
 }
 
 const requestToUserRequestInCookies = () => {

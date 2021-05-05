@@ -1,6 +1,6 @@
 export const DragIconForms = () => {
   return (
-    <div className="forms-api-console__span-drag" title="пока не работает">
+    <div className="forms-api-console__span-drag">
       <div></div>
       <div></div>
       <div></div>

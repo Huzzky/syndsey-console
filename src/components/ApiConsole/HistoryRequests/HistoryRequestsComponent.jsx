@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
 import '../../../assets/_historyRequestsComponent.scss'
+import { userDeletingCookiesWithRequests } from '../../../store/actions/userDeletingCookiesWithRequests'
 import Drowdown from './Drowdown'
 
-const HistoryRequestsComponent = ({ userRequestHistory }) => {
+const HistoryRequestsComponent = ({
+  userRequestHistory,
+  userDeletingCookiesWithRequests,
+}) => {
   const [dropdownActive, setDropdownActive] = useState(false)
 
   // TODO сделать запись в куки запросов (уникальность, название, ошибка или норм, сам запрос)
@@ -47,14 +51,24 @@ const HistoryRequestsComponent = ({ userRequestHistory }) => {
       <div className="history-component">{HistoryRequestsHTML}</div>
       <div className="history__container-delete">
         <div className="history__gradient"></div>
-        <div className="history__btn-history-panel">X</div>
+        <div
+          className="history__btn-history-panel"
+          onClick={() => userDeletingCookiesWithRequests()}
+        >
+          X
+        </div>
       </div>
     </div>
   )
 }
 
+const mapDispatch = (dispatch) => ({
+  userDeletingCookiesWithRequests: () =>
+    dispatch(userDeletingCookiesWithRequests()),
+})
+
 const mapStateToProps = ({ userActionsReducer }) => ({
   userRequestHistory: userActionsReducer.reqHistory,
 })
 
-export default connect(mapStateToProps)(HistoryRequestsComponent)
+export default connect(mapStateToProps, mapDispatch)(HistoryRequestsComponent)

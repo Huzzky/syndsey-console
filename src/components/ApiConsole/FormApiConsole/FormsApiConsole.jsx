@@ -5,7 +5,7 @@ import { DragIconForms } from '../../Core/DragIconForms'
 
 const FormsApiConsole = () => {
   return (
-    <div className="forms-api-console">
+    <div className="forms-api-console" id="slider">
       <InputUserRequest />
       <div className="forms-api-console__span-drag--container">
         <DragIconForms />
